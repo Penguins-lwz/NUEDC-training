@@ -49,7 +49,7 @@
 
 /* USER CODE BEGIN PV */
 myUART_HandleTypeDef UART_Debug = { .huart = &huart1, .RxMsgUsed = true };
-myADC_HandleTypeDef ADC_Dual = { .hadc_master = &hadc1, .htim = &htim6, .ConvFinish = false };
+myADC_HandleTypeDef ADC_Dual = { .hadc_master = &hadc1, .hadc_slave = &hadc2, .htim = &htim6, .ConvFinish = false };
 myDAC_HandleTypeDef DAC_Dual = { .hdac = &hdac1, .htim = &htim7 };
 
 /* USER CODE END PV */
@@ -86,8 +86,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	myADC_DualStop_DMA(&ADC_Dual);
-	ADC_Dual.ConvFinish = true;
+	if (hadc == ADC_Dual.hadc_master)
+	{
+		myADC_DualStop_DMA(&ADC_Dual);
+		ADC_Dual.ConvFinish = true;
+	}
 }
 
 /* USER CODE END 0 */

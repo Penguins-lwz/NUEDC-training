@@ -291,6 +291,8 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 /* USER CODE BEGIN 1 */
 void myADC_DualStart_DMA(myADC_HandleTypeDef *myhadc)
 {
+	HAL_ADCEx_Calibration_Start(myhadc->hadc_master, ADC_SINGLE_ENDED);
+	HAL_ADCEx_Calibration_Start(myhadc->hadc_slave, ADC_SINGLE_ENDED);
 	HAL_ADCEx_MultiModeStart_DMA(myhadc->hadc_master, myhadc->ADC_DualData, ADC_DataSize);
 	HAL_TIM_Base_Start(myhadc->htim);
 }

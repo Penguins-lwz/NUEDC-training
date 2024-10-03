@@ -41,6 +41,7 @@ extern ADC_HandleTypeDef hadc2;
 
 typedef struct {
 	ADC_HandleTypeDef *hadc_master;
+	ADC_HandleTypeDef *hadc_slave;
 	TIM_HandleTypeDef *htim;
 	uint32_t ADC_DualData[ADC_DataSize];
 	__IOM bool ConvFinish;

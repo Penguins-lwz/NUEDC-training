@@ -180,7 +180,7 @@ void myDAC_DualStart_DMA(myDAC_HandleTypeDef *myhdac)
 void myDAC_DualStop_DMA(myDAC_HandleTypeDef *myhdac)
 {
 	HAL_DACEx_DualStop_DMA(myhdac->hdac, DAC_CHANNEL_1);
-	HAL_TIM_Base_Start(myhdac->htim);
+	HAL_TIM_Base_Stop(myhdac->htim);
 }
 
 /* USER CODE END 1 */

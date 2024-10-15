@@ -1,6 +1,7 @@
 # README
 
 * 本测试例程适配自制开发板 [*@ Penguins V3.1*](https://github.com/Penguins-lwz/NUEDC-training/blob/main/Hardware_Project/G474VET6_V3.1.eprj) 及 [康威科技 AD9833 模块](https://item.taobao.com/item.htm?id=522152798192&skuId=3882125657353)
+* 更多信息请查阅 [ADI-AD9833](https://www.analog.com/cn/products/ad9833.html)
 
 ## 硬件连接
 * 模块供电：2.3 V ~ 5.5 V，可选用 DAP-Link / 开发板 / 外接电源供电，注意共地

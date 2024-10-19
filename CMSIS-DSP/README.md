@@ -3,7 +3,9 @@
 * 本文件夹包含用于在 STM32 导入 [**CMSIS-DSP Version 1.16.2**](https://arm-software.github.io/CMSIS-DSP/latest/index.html) 的必要文件
 * 注意：以上链接将在版本更新时自动链接至最新版本
 
-## 获取方式(Access to CMSIS-DSP)
+## 以源码移植方式导入 (建议)
+
+### 获取方式
 
 > CMSIS-DSP is actively maintained in the [**CMSIS-DSP GitHub repository**](https://github.com/ARM-software/CMSIS-DSP) and is released as a standalone [**CMSIS-DSP pack**](https://www.keil.arm.com/packs/cmsis-dsp-arm/versions/) in the [CMSIS-Pack format](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html).
 > 
@@ -14,13 +16,19 @@
     * `.\PrivateInclude`
     * `.\Source`
 
-## 导入方式
+### 导入方式
 
-* 使用 CubeMX 新建工程，建议分配栈空间 (Stack Size) 不少于 4 KB (0x1000)
+* 使用 CubeMX 新建工程，建议分配栈空间 Stack Size 不少于 4 KB (0x1000)
 * 将本 CMSIS-DSP 文件夹复制至工程目录 `<ProjectName>\Drivers`
 * 在 Keil 中新建 Groups，命名为 **Drivers/CMSIS-DSP**，导入 `.\Source` 中与文件夹名相同的 .c 文件
 * 在 Options for Target 中，导入 `.\Drivers\CMSIS-DSP\Include` 与 `.\Drivers\CMSIS-DSP\PrivateInclude`
 * 在 main.h 导入头文件 `#include "arm_math.h"`，如需使用 FFT 继续导入头文件 `#include "arm_const_structs.h"`
+
+## 以 CubeMX 方式导入 (不建议)
+
+* 使用此方法，将导致所有新建的工程均包含 DSP 库，工程文件容量较大
+* 使用此方法，存在冲突问题，每次修改 CubeMX 配置重新生成初始化代码时，均需执行一系列操作消除报错，极为不便
+* 综上，不在此介绍此方法
 
 ## 使用指南
 

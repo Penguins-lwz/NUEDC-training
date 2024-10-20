@@ -1,6 +1,6 @@
 #include "fft.h"
 
-float32_t FFT_Buffer[FFT_DATA_SIZE * 2];
+float32_t FFT_Buffer[2 * FFT_DATA_SIZE];
 
 void RFFT_f32(float32_t *pSrc, float32_t *pDst, float32_t threshold)
 {
@@ -18,12 +18,7 @@ void RFFT_f32(float32_t *pSrc, float32_t *pDst, float32_t threshold)
 	for (uint16_t i = 1; i < FFT_DATA_SIZE / 2; ++i)
 	{
 		pDst[i] /= (FFT_DATA_SIZE / 2);
-		if (pDst[i] < threshold)
-			pDst[i + FFT_DATA_SIZE / 2] = 0;
-		else
-		{
-			arm_atan2_f32(FFT_Buffer[2 * i + 1], FFT_Buffer[2 * i], &pDst[i + FFT_DATA_SIZE / 2]);
-			pDst[i + FFT_DATA_SIZE / 2] *= (180 / PI);
-		}
+		if (pDst[i] < threshold) pDst[i + FFT_DATA_SIZE / 2] = 0;
+		else arm_atan2_f32(FFT_Buffer[2 * i + 1], FFT_Buffer[2 * i], &pDst[i + FFT_DATA_SIZE / 2]);
 	}
 }

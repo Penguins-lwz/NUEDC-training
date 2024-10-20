@@ -323,7 +323,7 @@ void ALGO_FFT_Demo_1(void)
 	
 	// Print both amplitude spectrum and phase spectrum simultaneously.
 	for (uint16_t i = 0; i < FFT_DATA_SIZE / 2; ++i)
-		myUART_Transmit_DMA(&UART_Debug, "FFT[%d]: %.3f, %.3f\n", i, FFT_Dst[i], FFT_Dst[i + FFT_DATA_SIZE / 2]);
+		myUART_Transmit_DMA(&UART_Debug, "FFT[%d]: %.3f, %.3f\n", i, FFT_Dst[i], FFT_Dst[i + FFT_DATA_SIZE / 2] * (180 / PI));
 }
 
 void ALGO_FFT_Demo_2(void)
@@ -337,7 +337,7 @@ void ALGO_FFT_Demo_2(void)
 	
 	// Print both amplitude spectrum and phase spectrum simultaneously.
 	for (uint16_t i = 0; i < FFT_DATA_SIZE / 2; ++i)
-		myUART_Transmit_DMA(&UART_Debug, "FFT[%d]: %.3f, %.3f\n", i, FFT_Dst[i], FFT_Dst[i + FFT_DATA_SIZE / 2]);
+		myUART_Transmit_DMA(&UART_Debug, "FFT[%d]: %.3f, %.3f\n", i, FFT_Dst[i], FFT_Dst[i + FFT_DATA_SIZE / 2] * (180 / PI));
 }
 
 /* USER CODE END 4 */

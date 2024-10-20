@@ -22,7 +22,7 @@
 * 将本 CMSIS-DSP 文件夹复制至工程目录 `<ProjectName>\Drivers`
 * 在 Keil 中新建 Groups，命名为 **Drivers/CMSIS-DSP**，导入 `.\Source` 中与文件夹名相同的 .c 文件
 * 在 Options for Target 中，导入 `.\Drivers\CMSIS-DSP\Include` 与 `.\Drivers\CMSIS-DSP\PrivateInclude`
-* 在 main.h 导入头文件 `#include "arm_math.h"`，如需使用 FFT 继续导入头文件 `#include "arm_const_structs.h"`
+* 将已封装的 [**ALGO 算法库**](https://github.com/Penguins-lwz/NUEDC-training/tree/main/G474VET6_DSP_Demo_V2/Algo)（包含 FIR 与 FFT）复制至工程目录 `<ProjectName>`，导入方式与上述相同，工作组推荐命名为 **Application/User/Algo**
 
 ## 以 CubeMX 方式导入 (不建议)
 
@@ -40,7 +40,7 @@
 | **BasicMathFunctions.c** | **基本数学函数**，如加、减、乘、绝对值、点积、取反、偏移、尺度、位移、按位与、按位或、按位非、按位异或、裁剪 |
 | **FastMathFunctions.c** | **快速近似函数**，如正弦、余弦、反正切、平方根、自然指数、自然对数、定点除法 |
 | **ComplexMathFunctions.c** | **复数数学函数**，如共轭、取模、模平方、复数与实数的积、复数与复数的积 |
-| **FilteringFunctions.c** | **滤波函数**，如卷积、相关、FIR 滤波、IIR 滤波 |
+| **FilteringFunctions.c** | **滤波函数**，如卷积、相关性、FIR 滤波、IIR 滤波 |
 | **MatrixFunctions.c** | **矩阵函数**，如初始化、转置、求逆、尺度、矩阵加法、矩阵减法、矩阵乘法 |
 | **TransformFunctions.c** | **变换函数**，如实数 FFT，复数 FFT |
 | **ControllerFunctions.c** | **控制函数**，如正余弦、矢量旋转 |

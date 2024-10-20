@@ -233,9 +233,9 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   /* Choose demos ------------------------------------------------------------*/
-//  ALGO_FIR_Demo();
-//  ALGO_FFT_Demo_1();
-//  ALGO_FFT_Demo_2();
+  ALGO_FIR_Demo();
+  ALGO_FFT_Demo_1();
+  ALGO_FFT_Demo_2();
   
   /* USER CODE END 2 */
 

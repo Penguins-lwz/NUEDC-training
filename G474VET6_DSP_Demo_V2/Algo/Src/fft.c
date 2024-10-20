@@ -27,18 +27,3 @@ void RFFT_f32(float32_t *pSrc, float32_t *pDst, float32_t threshold)
 		}
 	}
 }
-
-//void RFFT_f32(float32_t *pSrc, float32_t *pDst, float32_t threshold)
-//{
-//	for (uint16_t i = 0; i < FFT_DATA_SIZE; ++i)
-//		FFT_Buffer[2 * i] = pSrc[i],
-//		FFT_Buffer[2 * i + 1] = 0;
-//	
-//	arm_cfft_instance_f32 S;
-//	arm_cfft_init_f32(&S, FFT_DATA_SIZE);
-//	arm_cfft_f32(&S, pDst, 0, 1);
-////	pDst[0] /= FFT_DATA_SIZE;
-////	pDst[1] /= FFT_DATA_SIZE;
-////	for (uint16_t i = 2; i < FFT_DATA_SIZE; ++i)
-////		pDst[i] /= (FFT_DATA_SIZE / 2);
-//}

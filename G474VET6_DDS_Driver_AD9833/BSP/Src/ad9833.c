@@ -2,18 +2,12 @@
 
 static void DDS_Transmit(uint16_t pData)
 {
-	#if (DDS_USE_HARDWARE)
-	HAL_SPI_Transmit(&DDS_SPI, (uint8_t *)&pData, 1, 0xF);
-	
-	#else
 	for (uint8_t i = 0; i < 16; ++i)
 	{
 		DDS_SDA_Set(pData & (0x8000 >> i));
 		DDS_SCL_Set(0);
 		DDS_SCL_Set(1);
 	}
-	
-	#endif
 }
 
 void DDS_Config(uint16_t form, float freq, float phase)

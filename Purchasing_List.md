@@ -19,7 +19,7 @@ A02 | 运算放大器芯片 | OPA1688IDR | SOIC-8 | C206212 | [华富联电子](
 A03 | 运算放大器芯片 | OPA2350UA/2K5 | SOIC-8 | C55904 | [华富联电子](https://item.taobao.com/item.htm?id=38126414191) | 50
 A04 | 运算放大器芯片 | OPA2376 | SOIC-8 | C46316 | [华富联电子](https://item.taobao.com/item.htm?id=546647597351) | 100
 S01 | 贴片无源晶振(2016) | X201624MMB4SI | SMD-2016 | C2965581 | [优信电子](https://item.taobao.com/item.htm?id=624700176228) | 0
-S02 | 贴片二极管(肖特基) | DSK26 | SOD-123FL | C50553 | [优信电子](https://item.taobao.com/item.htm?id=590318699245) | 2
+S02 | 贴片二极管(肖特基) | DSK26 | SOD-123FL | C50553 | [优信电子](https://item.taobao.com/item.htm?id=590318699245) | 0
 S03 | 贴片二极管(肖特基) | SS54 | DO-214 | C22452 | [优信电子](https://item.taobao.com/item.htm?id=522555071084) | 0
 S03 | 贴片二极管(白色LED) | XL-1608UWC-06A | LED0603 | C7371902 | [优信电子](https://item.taobao.com/item.htm?id=522573349430) | 充足
 S04 | 贴片二极管(共阳RGB) | XL-1615RGBC-RF | LED0606 | C965840 | [优信电子](https://item.taobao.com/item.htm?id=753255460108&skuId=5192768072819) | 19

@@ -40,7 +40,7 @@ H03 | 连接器(IC座) | － | － | － | [优信电子](https://item.taobao.co
 H04 | 连接器(接插件) | KF2510直针座 | － | － | [优信电子](https://item.taobao.com/item.htm?id=522574606497) | [2P] 2000<br>[3P] 1000
 H05 | 连接器(接插件) | KF2510胶壳座 | － | － | [优信电子](https://item.taobao.com/item.htm?id=522574389019) | [2P] 300<br>[3P] 300
 H06 | 连接器(接插件) | KF2510端子簧片 | － | － | [优信电子](https://item.taobao.com/item.htm?id=674706411070) | 500
-H07 | 连接器(天线座) | SMA-KE直头偏角 | － | － | [优信电子](https://item.taobao.com/item.htm?id=535460912016) | 200
+H07 | 连接器(天线座) | SMA-KE直头偏角 | － | C496550 | [优信电子](https://item.taobao.com/item.htm?id=535460912016) | 200
 H08 | 连接器(Type-C母座) | KH-TYPE-C-16P | 贴片，16P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=573090887123) | 11
 H09 | 连接器(FPC抽屉下接) | AFC07-S08FCA-00 | 贴片，8P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=552629356951&skuId=4983175264923) | 0
 H10 | 软硅胶线 | 22AWG (3.2A) | - | - | [电子爱好者](https://item.taobao.com/item.htm?id=602096096596) | [红色] 5 m<br>[黑色] 5 m<br>[绿色] 5 m

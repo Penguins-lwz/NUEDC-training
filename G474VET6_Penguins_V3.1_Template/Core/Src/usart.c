@@ -184,24 +184,18 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 /* USER CODE BEGIN 1 */
 void myUART_Start_Receive_DMA(myUART_HandleTypeDef *myhuart)
 {
-	HAL_UARTEx_ReceiveToIdle_DMA(myhuart->huart, (uint8_t *)myhuart->RxBuf, UART_BufSize);
+	memset(myhuart->RxMsg, 0, UART_BufSize);
+	HAL_UARTEx_ReceiveToIdle_DMA(myhuart->huart, (uint8_t *)myhuart->RxMsg, UART_BufSize - 1);
 }
 
 void myUART_Transmit_DMA(myUART_HandleTypeDef *myhuart, const char *format, ...)
 {
-	while (myhuart->huart->gState != HAL_UART_STATE_READY || myhuart->huart->hdmatx->State != HAL_DMA_STATE_READY);
 	va_list ap;
 	va_start(ap, format);
-	int Size = vsnprintf(myhuart->TxBuf, UART_BufSize, format, ap);
-	if (Size <= 0) Error_Handler();
+	while (myhuart->huart->gState != HAL_UART_STATE_READY || myhuart->huart->hdmatx->State != HAL_DMA_STATE_READY);
+	int Size = vsnprintf(myhuart->TxMsg, UART_BufSize, format, ap);
 	va_end(ap);
-	HAL_UART_Transmit_DMA(myhuart->huart, (uint8_t *)myhuart->TxBuf, Size);
-}
-
-void myUART_Receive_DMA(myUART_HandleTypeDef *myhuart)
-{
-	memcpy(myhuart->RxMsg, myhuart->RxBuf, UART_BufSize);
-	memset(myhuart->RxBuf, 0, UART_BufSize);
+	HAL_UART_Transmit_DMA(myhuart->huart, (uint8_t *)myhuart->TxMsg, Size < UART_BufSize ? Size : (UART_BufSize - 1));
 }
 
 /* USER CODE END 1 */

@@ -54,7 +54,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-myUART_HandleTypeDef myUART = { .huart = &huart1, .RxMsgUsed = true };
+myUART_HandleTypeDef myUART = { .huart = &huart1 };
 myADC_HandleTypeDef myADC = { .hadc = &hadc5, .htim = &htim6, .ConvFinish = false };
 myDAC_HandleTypeDef myDAC = { .hdac = &hdac2, .htim = &htim7, .channel = DAC_CHANNEL_1 };
 myDualADC_HandleTypeDef myDualADC = { .hadc_master = &hadc1, .hadc_slave = &hadc2, .htim = &htim6, .ConvFinish = false };
@@ -73,13 +73,9 @@ void Key_Process(uint8_t keyNum);
 /* USER CODE BEGIN 0 */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-	if (huart == myUART.huart)
+	if (huart == myUART.huart && huart->RxEventType != HAL_UART_RXEVENT_HT)
 	{
-		if (myUART.RxMsgUsed == true)
-		{
-			myUART_Receive_DMA(&myUART);
-			myUART_Transmit_DMA(&myUART, "RxMsg: %s", myUART.RxMsg);
-		}
+		myUART_Transmit_DMA(&myUART, "RxMsg: %s", myUART.RxMsg);
 		myUART_Start_Receive_DMA(&myUART);
 	}
 }

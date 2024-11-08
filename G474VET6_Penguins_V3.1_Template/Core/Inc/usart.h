@@ -35,14 +35,12 @@ extern "C" {
 extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
-#define UART_BufSize	128		// No more than 255
+#define UART_BufSize	101		// including NUL('\0'), no more than 65536
 
 typedef struct {
 	UART_HandleTypeDef *huart;
-	char TxBuf[UART_BufSize];
-	char RxBuf[UART_BufSize];
+	char TxMsg[UART_BufSize];
 	char RxMsg[UART_BufSize];
-	__IOM bool RxMsgUsed;
 } myUART_HandleTypeDef;
 
 /* USER CODE END Private defines */
@@ -52,7 +50,6 @@ void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN Prototypes */
 void myUART_Start_Receive_DMA(myUART_HandleTypeDef *myhuart);
 void myUART_Transmit_DMA(myUART_HandleTypeDef *myhuart, const char *format, ...);
-void myUART_Receive_DMA(myUART_HandleTypeDef *myhuart);
 
 /* USER CODE END Prototypes */
 

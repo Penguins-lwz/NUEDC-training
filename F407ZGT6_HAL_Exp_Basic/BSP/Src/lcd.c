@@ -51,10 +51,8 @@ void LCD_Init()
 {
 	LCD_InteralInit();
 	LCD_SetDirection(Dir_Rotate90);
-	
 	LCD_ClearAll(WHITE);
 	LCD_ShowString(40, 40, 32, BLACK, WHITE, "F407ZGT6 FSMC Connected.");
-	
 	HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
 }
 
@@ -70,6 +68,8 @@ static void LCD_SetArea(uint16_t xs, uint16_t ys, uint16_t xe, uint16_t ye)
 	static uint16_t _xe = 0xFFFF;
 	static uint16_t _ye = 0xFFFF;
 	
+	if (--xe >= LCD_RangeX) xe = LCD_RangeX - 1;
+	if (--ye >= LCD_RangeY) ye = LCD_RangeY - 1;
 	if (_xs != xs) _xs = xs, LCD_Write(0x2A00, xs >> 8), LCD_Write(0x2A01, xs & 0xFF);
 	if (_xe != xe) _xe = xe, LCD_Write(0x2A02, xe >> 8), LCD_Write(0x2A03, xe & 0xFF);
 	if (_ys != ys) _ys = ys, LCD_Write(0x2B00, ys >> 8), LCD_Write(0x2B01, ys & 0xFF);

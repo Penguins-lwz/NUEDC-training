@@ -44,12 +44,14 @@ H04 | 连接器(接插件) | KF2510直针座 | － | [2P] C722716<br>[3P] C28476
 H05 | 连接器(接插件) | KF2510胶壳座 | － | － | [优信电子](https://item.taobao.com/item.htm?id=522574389019) | [2P] 300<br>[3P] 300
 H06 | 连接器(接插件) | KF2510端子簧片 | － | － | [优信电子](https://item.taobao.com/item.htm?id=674706411070) | 500
 H07 | 连接器(天线座) | SMA-KE直头偏角 | － | C496550 | [优信电子](https://item.taobao.com/item.htm?id=535460912016) | 200
-H08 | 连接器(Type-C母座) | KH-TYPE-C-16P | 贴片，16P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=573090887123) | 11
-H09 | 连接器(FPC抽屉下接) | AFC07-S08FCA-00 | 贴片，8P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=552629356951&skuId=4983175264923) | 0
-H10 | 软硅胶线 | 22AWG (3.2A) | - | - | [电子爱好者](https://item.taobao.com/item.htm?id=602096096596) | [红色] 5 m<br>[黑色] 5 m<br>[绿色] 5 m
-H11 | 同轴连接线 | SMA-J转SMA-J | - | - | [优信电子](https://item.taobao.com/item.htm?id=639810570631) | 不少于 50
-H12 | 同轴连接线 | SMA-J转BNC-J | - | - | [优信电子](https://item.taobao.com/item.htm?id=639809966798) | 不少于 40
-E01 | 元件柜 | - | - | - | [晨海塑料](https://item.taobao.com/item.htm?id=618923113782) | 0
-E02 | 覆铜板(单面玻纤) | - | - | - | [优信电子](https://item.taobao.com/item.htm?id=561576782296) | 0
-E03 | 覆铜板(双面玻纤) | - | - | - | [优信电子](https://item.taobao.com/item.htm?id=561577166073) | [10*15 cm] 60
-E04 | TFTLCD显示屏(1.14寸) | GMT114-02-WG | 插接，8P | - | [优信电子](https://item.taobao.com/item.htm?id=680586598490&skuId=5055154567363) | 0
+H08 | 连接器(简牛座) | IDC直插简牛座 | － | [10P] C492442 | [优信电子](https://item.taobao.com/item.htm?id=554625434436) | 0
+H09 | 连接器(Type-C母座) | KH-TYPE-C-16P | 贴片，16P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=573090887123) | 11
+H10 | 连接器(FPC抽屉下接) | AFC07-S08FCA-00 | 贴片，8P | C709357 | [优信电子](https://item.taobao.com/item.htm?id=552629356951&skuId=4983175264923) | 0
+H11 | 连接器(灰排线) | － | － | － | [优信电子](https://item.taobao.com/item.htm?id=646269733311) | 0
+H12 | 软硅胶线 | 22AWG (3.2A) | － | － | [电子爱好者](https://item.taobao.com/item.htm?id=602096096596) | [红色] 5 m<br>[黑色] 5 m<br>[绿色] 5 m
+H13 | 同轴连接线 | SMA-J转SMA-J | － | － | [优信电子](https://item.taobao.com/item.htm?id=639810570631) | 不少于 50
+H14 | 同轴连接线 | SMA-J转BNC-J | － | － | [优信电子](https://item.taobao.com/item.htm?id=639809966798) | 不少于 40
+E01 | 元件柜 | － | － | － | [晨海塑料](https://item.taobao.com/item.htm?id=618923113782) | 0
+E02 | 覆铜板(单面玻纤) | － | － | － | [优信电子](https://item.taobao.com/item.htm?id=561576782296) | 0
+E03 | 覆铜板(双面玻纤) | － | － | － | [优信电子](https://item.taobao.com/item.htm?id=561577166073) | [10*15 cm] 60
+E04 | TFTLCD显示屏(1.14寸) | GMT114-02-WG | 插接，8P | － | [优信电子](https://item.taobao.com/item.htm?id=680586598490&skuId=5055154567363) | 0

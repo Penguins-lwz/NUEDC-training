@@ -40,7 +40,7 @@ D06 | 直插三极管(NPN) | S9013 | TO-92 | C6748 | [优信电子](https://item
 H01 | 连接器(排针) | 双列直插 | － | － | [优信电子](https://item.taobao.com/item.htm?id=571300127803) | 0
 H02 | 连接器(排针) | 单列弯插 | － | － | [优信电子](https://item.taobao.com/item.htm?id=570974088458) | 0
 H03 | 连接器(IC座) | － | － | － | [优信电子](https://item.taobao.com/item.htm?id=522572386374) | 600
-H04 | 连接器(接插件) | KF2510直针座 | － | [2P] C722716<br>[3P] C2847670 | [优信电子](https://item.taobao.com/item.htm?id=522574606497) | [2P] 2000<br>[3P] 1000
+H04 | 连接器(接插件) | KF2510直针座 | － | [2P] C27543<br>[3P] C29275 | [优信电子](https://item.taobao.com/item.htm?id=522574606497) | [2P] 2000<br>[3P] 1000
 H05 | 连接器(接插件) | KF2510胶壳座 | － | － | [优信电子](https://item.taobao.com/item.htm?id=522574389019) | [2P] 300<br>[3P] 300
 H06 | 连接器(接插件) | KF2510端子簧片 | － | － | [优信电子](https://item.taobao.com/item.htm?id=674706411070) | 500
 H07 | 连接器(天线座) | SMA-KE直头偏角 | － | C496550 | [优信电子](https://item.taobao.com/item.htm?id=535460912016) | 200

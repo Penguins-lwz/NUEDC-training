@@ -4,7 +4,7 @@ static void DDS_Transmit(uint16_t pData)
 {
 	for (uint8_t i = 0; i < 16; ++i)
 	{
-		DDS_SDA_Set(pData & (0x8000 >> i));
+		DDS_SDA_Set(pData & (0x8000 >> i) ? 1 : 0);
 		DDS_SCL_Set(0);
 		DDS_SCL_Set(1);
 	}

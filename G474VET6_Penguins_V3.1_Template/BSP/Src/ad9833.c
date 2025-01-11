@@ -4,7 +4,7 @@ static void AD9833_Transmit(uint16_t pData)
 {
 	for (uint8_t i = 0; i < 16; ++i)
 	{
-		AD9833_SDA_Set(pData & (0x8000 >> i));
+		AD9833_SDA_Set(pData & (0x8000 >> i) ? 1 : 0);
 		AD9833_SCL_Set(0);
 		AD9833_SCL_Set(1);
 	}

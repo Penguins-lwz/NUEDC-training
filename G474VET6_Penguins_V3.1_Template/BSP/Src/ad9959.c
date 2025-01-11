@@ -4,7 +4,7 @@ static void AD9959_Transmit(uint8_t pData)
 {
 	for (uint8_t i = 0; i < 8; ++i)
 	{
-		AD9959_SDA_Set(pData & (0x80 >> i));
+		AD9959_SDA_Set(pData & (0x80 >> i) ? 1 : 0);
 		AD9959_SCL_Set(1);
 		AD9959_SCL_Set(0);
 	}

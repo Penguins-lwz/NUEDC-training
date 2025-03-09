@@ -20,6 +20,8 @@
 * `<PROJECT_ROOT>\MDK-ARM\` 存放 Keil 必要文件，用户可由 `Project.uvprojx` 进入 Keil
 * `<PROJECT_ROOT>\MSPM0-SDK\` 存放 SYSCONFIG 配置文件，如修改配置后 SYSCONFIG 要求保存，应当存放于此
 
+本仓库所有工程均已修改启动文件，栈空间扩充至 `0x1000 (4 KB)`。
+
 ## 注意事项
 
 * 本仓库配有适配 TI MCU 的批处理文件 `keilkillforti.bat` 以清理编译文件

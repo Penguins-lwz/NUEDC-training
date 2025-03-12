@@ -82,6 +82,34 @@ extern "C" {
 
 
 
+/* Defines for TIM_KEY */
+#define TIM_KEY_INST                                                     (TIMG0)
+#define TIM_KEY_INST_IRQHandler                                 TIMG0_IRQHandler
+#define TIM_KEY_INST_INT_IRQN                                   (TIMG0_INT_IRQn)
+#define TIM_KEY_INST_LOAD_VALUE                                          (9999U)
+
+
+
+/* Defines for UART_DEBUG */
+#define UART_DEBUG_INST                                                    UART0
+#define UART_DEBUG_INST_FREQUENCY                                       40000000
+#define UART_DEBUG_INST_IRQHandler                              UART0_IRQHandler
+#define UART_DEBUG_INST_INT_IRQN                                  UART0_INT_IRQn
+#define GPIO_UART_DEBUG_RX_PORT                                            GPIOA
+#define GPIO_UART_DEBUG_TX_PORT                                            GPIOA
+#define GPIO_UART_DEBUG_RX_PIN                                    DL_GPIO_PIN_11
+#define GPIO_UART_DEBUG_TX_PIN                                    DL_GPIO_PIN_10
+#define GPIO_UART_DEBUG_IOMUX_RX                                 (IOMUX_PINCM22)
+#define GPIO_UART_DEBUG_IOMUX_TX                                 (IOMUX_PINCM21)
+#define GPIO_UART_DEBUG_IOMUX_RX_FUNC                  IOMUX_PINCM22_PF_UART0_RX
+#define GPIO_UART_DEBUG_IOMUX_TX_FUNC                  IOMUX_PINCM21_PF_UART0_TX
+#define UART_DEBUG_BAUD_RATE                                            (115200)
+#define UART_DEBUG_IBRD_40_MHZ_115200_BAUD                                  (21)
+#define UART_DEBUG_FBRD_40_MHZ_115200_BAUD                                  (45)
+
+
+
+
 
 /* Port definition for Pin Group LED */
 #define LED_PORT                                                         (GPIOB)
@@ -110,8 +138,12 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
+void SYSCFG_DL_TIM_KEY_init(void);
+void SYSCFG_DL_UART_DEBUG_init(void);
 
 
+bool SYSCFG_DL_saveConfiguration(void);
+bool SYSCFG_DL_restoreConfiguration(void);
 
 #ifdef __cplusplus
 }

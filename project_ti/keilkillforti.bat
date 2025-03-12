@@ -5,6 +5,7 @@ del *.crf /s
 del *.d /s
 del *.ddk /s
 del *.dep /s
+del *.dot /s
 del *.edk /s
 del *.hex /s
 del *.htm /s

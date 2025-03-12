@@ -68,8 +68,6 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
     DL_GPIO_initPeripheralAnalogFunction(GPIO_HFXIN_IOMUX);
     DL_GPIO_initPeripheralAnalogFunction(GPIO_HFXOUT_IOMUX);
 
-    DL_GPIO_initDigitalOutput(LED_W_IOMUX);
-
     DL_GPIO_initDigitalOutput(LED_R_IOMUX);
 
     DL_GPIO_initDigitalOutput(LED_G_IOMUX);
@@ -84,8 +82,6 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
 		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
 
-    DL_GPIO_setPins(GPIOA, LED_W_PIN);
-    DL_GPIO_enableOutput(GPIOA, LED_W_PIN);
     DL_GPIO_clearPins(GPIOB, LED_R_PIN |
 		LED_G_PIN |
 		LED_B_PIN);

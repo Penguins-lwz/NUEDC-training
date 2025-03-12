@@ -91,20 +91,16 @@ extern "C" {
 
 
 
-/* Defines for W: GPIOA.0 with pinCMx 1 on package pin 33 */
-#define LED_W_PORT                                                       (GPIOA)
-#define LED_W_PIN                                                (DL_GPIO_PIN_0)
-#define LED_W_IOMUX                                               (IOMUX_PINCM1)
+/* Port definition for Pin Group LED */
+#define LED_PORT                                                         (GPIOB)
+
 /* Defines for R: GPIOB.26 with pinCMx 57 on package pin 28 */
-#define LED_R_PORT                                                       (GPIOB)
 #define LED_R_PIN                                               (DL_GPIO_PIN_26)
 #define LED_R_IOMUX                                              (IOMUX_PINCM57)
 /* Defines for G: GPIOB.27 with pinCMx 58 on package pin 29 */
-#define LED_G_PORT                                                       (GPIOB)
 #define LED_G_PIN                                               (DL_GPIO_PIN_27)
 #define LED_G_IOMUX                                              (IOMUX_PINCM58)
 /* Defines for B: GPIOB.22 with pinCMx 50 on package pin 21 */
-#define LED_B_PORT                                                       (GPIOB)
 #define LED_B_PIN                                               (DL_GPIO_PIN_22)
 #define LED_B_IOMUX                                              (IOMUX_PINCM50)
 /* Defines for S1: GPIOA.18 with pinCMx 40 on package pin 11 */

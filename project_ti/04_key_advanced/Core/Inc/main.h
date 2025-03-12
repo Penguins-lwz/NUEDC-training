@@ -8,4 +8,4 @@
 
 #define DL_Delay(xms)	delay_cycles(CPUCLK_FREQ / 1000 * (xms))
 
-#endif /*__MAIN_H__*/
+#endif /* __MAIN_H__ */

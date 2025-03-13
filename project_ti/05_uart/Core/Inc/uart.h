@@ -10,7 +10,7 @@ typedef struct {
 	IRQn_Type IRQn;
 	char TxMsg[UART_BufSize];
 	char RxMsg[UART_BufSize];
-	uint16_t rx_idx;
+	__IOM uint16_t rx_idx;
 } myUART_HandleTypeDef;
 
 void myUART_Start_Receive(myUART_HandleTypeDef *myhuart);

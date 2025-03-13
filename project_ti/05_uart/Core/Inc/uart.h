@@ -7,14 +7,13 @@
 
 typedef struct {
 	UART_Regs *huart;
-	IRQn_Type IRQn;
 	char TxMsg[UART_BufSize];
 	char RxMsg[UART_BufSize];
-	__IOM uint16_t rx_idx;
+	uint16_t rx_idx;
 } myUART_HandleTypeDef;
 
-void myUART_Start_Receive(myUART_HandleTypeDef *myhuart);
-void myUART_RxEventCallback(myUART_HandleTypeDef *myhuart);
 void myUART_Transmit(myUART_HandleTypeDef *myhuart, const char *format, ...);
+void myUART_IRQHandler(myUART_HandleTypeDef *myhuart);
+void myUART_RxEventCallback(myUART_HandleTypeDef *myhuart);
 
 #endif /* __UART_H__ */

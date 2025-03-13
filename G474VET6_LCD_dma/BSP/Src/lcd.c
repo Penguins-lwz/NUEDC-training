@@ -152,18 +152,16 @@ static void LCD_ShowChar(uint16_t xpos, uint16_t ypos, uint16_t ysize, uint16_t 
 	if (font == NULL) return;
 	
 	uint8_t xsize = ysize / 2;
-	uint8_t ybyte = (ysize + 7) / 8;
 	
 	#if (LCD_USE_DMA)
-	for (uint16_t i = 0; i < ysize; ++i)
-		for (uint16_t j = 0; j < xsize; ++j)
-			LCD_WriteBuf(xpos + j, ypos + i, font[ybyte * j + i / 8] & (0x01 << (i % 8)) ? fc : bc);
+	for (uint16_t i = 0; i < ysize * xsize; ++i)
+		LCD_WriteBuf(xpos + i % xsize, ypos + i / xsize, font[i / 8] & (0x01 << (i % 8)) ? fc : bc);
 	
 	#else
 	LCD_SetAddress(xpos, ypos, xsize, ysize);
-	for (uint16_t i = 0; i < ysize; ++i)
-		for (uint16_t j = 0; j < xsize; ++j)
-			LCD_WR_DAT16(font[ybyte * j + i / 8] & (0x01 << (i % 8)) ? fc : bc);
+	for (uint8_t i = 0; i < ysize * xsize / 8; ++i)
+		for (uint8_t j = 0; j < 8; ++j)
+			LCD_WR_DAT16(font[i] & (0x01 << j) ? fc : bc);
 	
 	#endif /* LCD_USE_DMA */
 }
@@ -175,17 +173,18 @@ void LCD_ShowString(uint16_t xpos, uint16_t ypos, uint16_t ysize, uint16_t fc, u
 	char str[48];
 	va_list ap;
 	va_start(ap, format);
-	int xnum = vsnprintf(str, (LCD_W - xpos) / xsize, format, ap);
+	vsnprintf(str, (LCD_W - xpos) / xsize + 1, format, ap);
 	va_end(ap);
 	
 	#if (LCD_USE_DMA)
-	for (uint16_t i = 0; i < xnum; ++i)
+	uint16_t i = 0;
+	for (; str[i]; ++i)
 		LCD_ShowChar(xpos + i * xsize, ypos, ysize, fc, bc, str[i]);
-	LCD_Update(xpos, ypos, xnum * ysize / 2, ysize);
+	LCD_Update(xpos, ypos, i * ysize / 2, ysize);
 	
 	#else
 	LCD_CS_WR(0);
-	for (uint16_t i = 0; i < xnum; ++i)
+	for (uint16_t i = 0; str[i]; ++i)
 		LCD_ShowChar(xpos + i * xsize, ypos, ysize, fc, bc, str[i]);
 	LCD_CS_WR(1);
 	

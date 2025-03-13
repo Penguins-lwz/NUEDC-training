@@ -93,7 +93,7 @@ int main(void)
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   LCD_Init();
-  LCD_ClearAll(WHITE);	HAL_Delay(200);
+  LCD_ClearAll(BLACK);	HAL_Delay(200);
   LCD_ClearAll(RED);	HAL_Delay(200);
   LCD_ClearAll(ORANGE);	HAL_Delay(200);
   LCD_ClearAll(YELLOW);	HAL_Delay(200);
@@ -101,10 +101,15 @@ int main(void)
   LCD_ClearAll(BLUE);	HAL_Delay(200);
   LCD_ClearAll(PURPLE);	HAL_Delay(200);
   LCD_ClearAll(WHITE);	HAL_Delay(200);
-  LCD_ShowString(16, 16, 32, BLACK, WHITE, "Penguins");
-  LCD_ShowString(16, 48, 24, BLACK, WHITE, "Penguins");
-  LCD_ShowString(16, 72, 16, BLACK, WHITE, "Penguins");
-  LCD_ShowString(16, 88, 12, BLACK, WHITE, "Penguins");
+  
+  uint16_t xpos = (LCD_W - 128) / 4;
+  uint16_t ypos = (LCD_H - 148) / 3;
+  LCD_ShowString(xpos, ypos + 0, 32, BLACK, WHITE, "LCD TEST");
+  LCD_ShowString(xpos, ypos + 32, 32, BLACK, WHITE, "Penguins");
+  LCD_ShowString(xpos, ypos + 64, 32, BLACK, WHITE, "F3216");
+  LCD_ShowString(xpos, ypos + 96, 24, BLACK, WHITE, "F2412");
+  LCD_ShowString(xpos, ypos + 120, 16, BLACK, WHITE, "F1608");
+  LCD_ShowString(xpos, ypos + 136, 12, BLACK, WHITE, "F1206");
   
   /* USER CODE END 2 */
 

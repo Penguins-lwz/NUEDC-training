@@ -27,7 +27,7 @@
 
 /* USER CODE BEGIN Configuration */
 #define LCD_SPECS		LCD_180_inch
-#define LCD_DIR			1
+#define LCD_DIR			2
 #define LCD_USE_DMA		1
 
 #if (LCD_USE_DMA)

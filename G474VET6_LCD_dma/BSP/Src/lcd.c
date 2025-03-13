@@ -57,7 +57,7 @@ static inline void LCD_WR_DAT16(uint16_t data)
 void LCD_Init(void)
 {
 	LCD_RST_WR(0); HAL_Delay(0);
-	LCD_RST_WR(1); HAL_Delay(4);
+	LCD_RST_WR(1); HAL_Delay(119);
 	
 	LCD_CS_WR(0);
 	

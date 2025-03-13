@@ -15,7 +15,7 @@ void myUART_RxEventCallback(myUART_HandleTypeDef *myhuart)
 int main(void)
 {
 	SYSCFG_DL_init();
-	NVIC_EnableIRQ(UART0_INT_IRQn);
+	NVIC_EnableIRQ(UART_DEBUG_INST_INT_IRQN);
 	NVIC_EnableIRQ(TIM_KEY_INST_INT_IRQN);
 	myUART_Transmit(&myUART, "G3507SPMR UART0 Connected.\n");
 	DL_Timer_startCounter(TIM_KEY_INST);

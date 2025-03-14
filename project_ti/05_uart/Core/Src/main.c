@@ -2,7 +2,7 @@
 #include "gpio.h"
 #include "uart.h"
 
-myUART_HandleTypeDef myUART = { .huart = UART0 };
+myUART_HandleTypeDef myUART = { .huart = UART_DEBUG_INST };
 
 void Key_Process(uint8_t keyNum);
 

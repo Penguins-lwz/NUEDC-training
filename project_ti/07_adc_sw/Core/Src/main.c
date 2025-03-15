@@ -15,12 +15,14 @@ void myUART_RxEventCallback(myUART_HandleTypeDef *myhuart)
 
 void myADC_ConvCpltCallback(myADC_HandleTypeDef *myhadc)
 {
+	/* ADC 转换完成回调函数：逐个打印采样数据 */
 	static uint32_t cnt = 0;
 	myUART_Transmit(&myUART, "ADC_%d: %d\n", cnt++, myADC.data);
 }
 
 int main(void)
 {
+	/* ADC 在初始化后默认使能，CTL0 ENC == 1 */
 	SYSCFG_DL_init();
 	NVIC_EnableIRQ(UART_DEBUG_INST_INT_IRQN);
 	NVIC_EnableIRQ(TIM_KEY_INST_INT_IRQN);
@@ -58,6 +60,7 @@ void ADC0_INST_IRQHandler(void)
 
 void Key_Process(uint8_t keyNum)
 {
+	/* 软件每 100 ms 开启一次 ADC，开启方法请转至函数定义查看 */
 	static uint16_t cnt = 0;
 	if (++cnt == 10) cnt = 0, LED_G_Toggle, myADC_Start(&myADC);
 	

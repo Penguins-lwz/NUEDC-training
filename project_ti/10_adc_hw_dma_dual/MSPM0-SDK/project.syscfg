@@ -125,14 +125,14 @@ TIMER1.interruptPriority  = "3";
 TIMER1.peripheral.$assign = "TIMG0";
 
 TIMER2.$name                       = "TIM_ADC";
-TIMER2.timerClkPrescale            = 20;
+TIMER2.timerClkPrescale            = 10;
 TIMER2.timerMode                   = "PERIODIC_UP";
 TIMER2.timerPeriod                 = "1 us";
 TIMER2.event1PublisherChannel      = 1;
 TIMER2.event1ControllerInterruptEn = ["ZERO_EVENT"];
 TIMER2.event2PublisherChannel      = 2;
 TIMER2.event2ControllerInterruptEn = ["ZERO_EVENT"];
-TIMER2.peripheral.$assign          = "TIMG6";
+TIMER2.peripheral.$assign          = "TIMG8";
 
 UART1.$name                            = "UART_DEBUG";
 UART1.targetBaudRate                   = 115200;

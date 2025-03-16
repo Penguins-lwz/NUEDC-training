@@ -40,8 +40,6 @@
 
 #include "ti_msp_dl_config.h"
 
-DL_TimerG_backupConfig gTIM_ADCBackup;
-
 /*
  *  ======== SYSCFG_DL_init ========
  *  Perform any initialization needed before using any board APIs
@@ -56,33 +54,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_TIM_ADC_init();
     SYSCFG_DL_UART_DEBUG_init();
     SYSCFG_DL_ADC0_init();
-    /* Ensure backup structures have no valid state */
-	gTIM_ADCBackup.backupRdy 	= false;
-
-
-}
-/*
- * User should take care to save and restore register configuration in application.
- * See Retention Configuration section for more details.
- */
-SYSCONFIG_WEAK bool SYSCFG_DL_saveConfiguration(void)
-{
-    bool retStatus = true;
-
-	retStatus &= DL_TimerG_saveConfiguration(TIM_ADC_INST, &gTIM_ADCBackup);
-
-    return retStatus;
 }
 
 
-SYSCONFIG_WEAK bool SYSCFG_DL_restoreConfiguration(void)
-{
-    bool retStatus = true;
-
-	retStatus &= DL_TimerG_restoreConfiguration(TIM_ADC_INST, &gTIM_ADCBackup, false);
-
-    return retStatus;
-}
 
 SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
 {
@@ -210,14 +184,14 @@ SYSCONFIG_WEAK void SYSCFG_DL_TIM_KEY_init(void) {
 }
 
 /*
- * Timer clock configuration to be sourced by BUSCLK /  (80000000 Hz)
+ * Timer clock configuration to be sourced by BUSCLK /  (40000000 Hz)
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
- *   500000 Hz = 80000000 Hz / (1 * (159 + 1))
+ *   500000 Hz = 40000000 Hz / (1 * (79 + 1))
  */
 static const DL_TimerG_ClockConfig gTIM_ADCClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
-    .prescale    = 159U,
+    .prescale    = 79U,
 };
 
 /*

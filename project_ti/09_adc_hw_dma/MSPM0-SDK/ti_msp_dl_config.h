@@ -88,9 +88,9 @@ extern "C" {
 #define TIM_KEY_INST_INT_IRQN                                   (TIMG0_INT_IRQn)
 #define TIM_KEY_INST_LOAD_VALUE                                          (9999U)
 /* Defines for TIM_ADC */
-#define TIM_ADC_INST                                                     (TIMG6)
-#define TIM_ADC_INST_IRQHandler                                 TIMG6_IRQHandler
-#define TIM_ADC_INST_INT_IRQN                                   (TIMG6_INT_IRQn)
+#define TIM_ADC_INST                                                     (TIMG8)
+#define TIM_ADC_INST_IRQHandler                                 TIMG8_IRQHandler
+#define TIM_ADC_INST_INT_IRQN                                   (TIMG8_INT_IRQn)
 #define TIM_ADC_INST_LOAD_VALUE                                             (3U)
 #define TIM_ADC_INST_PUB_0_CH                                                (1)
 

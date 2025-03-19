@@ -31,7 +31,7 @@ int main(void)
 	myUART_Transmit(&myUART, "G3507SPMR UART0 Connected.\n");
 	DL_Timer_startCounter(TIM_KEY_INST);
 	
-	/* 开启 DAC 输出，低电平 0 LSB，高电平 2048 LSB */
+	/* 开启 DAC 输出，低电平 0 VDDA，高电平 1/2 VDDA */
 	myDAC_Start_DMA(&myDAC, 2000);
 	
 	while (1)

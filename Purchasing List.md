@@ -31,12 +31,12 @@ S03 | 贴片二极管(肖特基) | DSK26 | SOD-123FL | C50553 | [优信电子](h
 S04 | 贴片二极管(肖特基) | SS54 | DO-214 | C22452 | [优信电子](https://item.taobao.com/item.htm?id=522555071084) | 0
 S05 | 贴片二极管(白色LED) | XL-1608UWC-06A | LED0603 | C7371902 | [优信电子](https://item.taobao.com/item.htm?id=522573349430) | 充足
 S06 | 贴片二极管(共阳RGB) | XL-1615RGBC-RF | LED0606 | C965840 | [优信电子](https://item.taobao.com/item.htm?id=753255460108&skuId=5192768072819) | 19
-S07 | 贴片电感 | 4.6*4.1*2.0 mm | SMD-0420 | － | [优信电子](https://item.taobao.com/item.htm?id=528437837997) | 0
-S08 | 贴片电感 | 5.7*5.1*2.0 mm | SMD-0520 | － | [优信电子](https://item.taobao.com/item.htm?id=618574718272) | 0
-S09 | 贴片电感 | 5.7*5.1*3.0 mm | SMD-0530 | － | [优信电子](https://item.taobao.com/item.htm?id=618016192711) | 0
-S10 | 贴片电感 | 7.4*6.6*3.0 mm | SMD-0630 | － | [优信电子](https://item.taobao.com/item.htm?id=528379639825) | 0
-S11 | 贴片电感 | 7.5*6.6*5.0 mm | SMD-0650 | － | [优信电子](https://item.taobao.com/item.htm?id=618284197303) | 0
-S12 | 贴片电感 | 11.6*10.1*4.0 mm | SMD-1040 | － | [优信电子](https://item.taobao.com/item.htm?id=528441541881) | 0
+S07 | 贴片电感 | 4.6\*4.1\*2.0 mm | SMD-0420 | － | [优信电子](https://item.taobao.com/item.htm?id=528437837997) | 0
+S08 | 贴片电感 | 5.7\*5.1\*2.0 mm | SMD-0520 | － | [优信电子](https://item.taobao.com/item.htm?id=618574718272) | 0
+S09 | 贴片电感 | 5.7\*5.1\*3.0 mm | SMD-0530 | － | [优信电子](https://item.taobao.com/item.htm?id=618016192711) | 0
+S10 | 贴片电感 | 7.4\*6.6\*3.0 mm | SMD-0630 | － | [优信电子](https://item.taobao.com/item.htm?id=528379639825) | 0
+S11 | 贴片电感 | 7.5\*6.6\*5.0 mm | SMD-0650 | － | [优信电子](https://item.taobao.com/item.htm?id=618284197303) | 0
+S12 | 贴片电感 | 11.6\*10.1\*4.0 mm | SMD-1040 | － | [优信电子](https://item.taobao.com/item.htm?id=528441541881) | 0
 S13 | 贴片磁珠 | CBM321609U221T | FB1206 | C93627 | [优信电子](https://item.taobao.com/item.htm?id=655095993056) | 充足
 S14 | 贴片光耦 | AQY221R4V | SSOP-4 | C6861633 | [鹏顺微电子](https://item.taobao.com/item.htm?id=757870241113) | 300
 S15 | 轻触开关 | － | SMD-4P | C139797 | [优信电子](https://item.taobao.com/item.htm?id=572616815375&skuId=5017402447036) | 充足
@@ -66,8 +66,8 @@ H16 | 同轴连接线 | SMA-J转BNC-J | － | － | [优信电子](https://item.
 E01 | 元件柜 | － | － | － | [晨海塑料](https://item.taobao.com/item.htm?id=618923113782) | 0
 E02 | 覆铜板 | 单面玻纤 | － | － | [优信电子](https://item.taobao.com/item.htm?id=561576782296) | 0
 E03 | 覆铜板 | 双面玻纤 | － | － | [优信电子](https://item.taobao.com/item.htm?id=561577166073) | [10*15 cm] 60
-E04 | TFTLCD显示屏 | 1.14寸，135*240 px | 插接，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665718901955) | 0
-E05 | TFTLCD显示屏 | 1.14寸，135*240 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=591494829887) | 0
-E06 | TFTLCD显示屏 | 1.54寸，240*240 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665780881454) | 0
-E07 | TFTLCD显示屏 | 1.69寸，240*280 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=666505851661) | 0
-E08 | TFTLCD显示屏 | 1.80寸，128*160 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665396916267) | 0
+E04 | TFTLCD显示屏 | 1.14寸，135\*240 px | 插接，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665718901955) | 0
+E05 | TFTLCD显示屏 | 1.14寸，135\*240 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=591494829887) | 0
+E06 | TFTLCD显示屏 | 1.54寸，240\*240 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665780881454) | 0
+E07 | TFTLCD显示屏 | 1.69寸，240\*280 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=666505851661) | 0
+E08 | TFTLCD显示屏 | 1.80寸，128\*160 px | 排针，8P | － | [优信电子](https://item.taobao.com/item.htm?id=665396916267) | 0

@@ -3,8 +3,8 @@
 #define LCD_SCL_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_SCL_PIN, x ? LCD_SCL_PIN : 0)
 #define LCD_SDA_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_SDA_PIN, x ? LCD_SDA_PIN : 0)
 #define LCD_RST_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_RST_PIN, x ? LCD_RST_PIN : 0)
-#define LCD_CS_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_CS_PIN, x ? LCD_CS_PIN : 0)
 #define LCD_DC_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_DC_PIN, x ? LCD_DC_PIN : 0)
+#define LCD_CS_WR(x)	DL_GPIO_writePinsVal(LCD_PORT, LCD_CS_PIN, x ? LCD_CS_PIN : 0)
 
 char LCD_str[48];
 

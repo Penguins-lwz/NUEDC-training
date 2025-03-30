@@ -45,13 +45,13 @@ S13 | 贴片光耦 | AQY221R4V | SSOP-4 | C6861633 | [鹏顺微电子](https://i
 S14 | 轻触开关 | SKRPACE010 | 4.0*3.0 mm | C139797 | [优信电子](https://item.taobao.com/item.htm?id=572616815375&skuId=5017402447034) | 30
 S15 | 拨码开关 | DSHP01TSGER | SMD-2P | C5144960 | [华利电子](https://item.taobao.com/item.htm?id=572711648463&skuId=3731471556083) | 0
 S16 | 拨码开关 | DSHP02TSGER | SMD-4P | C5144961 | [华利电子](https://item.taobao.com/item.htm?id=572711648463&skuId=3731471556084) | 0
-T01 | 直插电位器 | 3926W | － | － | [优信电子](https://item.taobao.com/item.htm?id=522572542537) | [1k] 30<br>[5k] 22<br>[10k] 20<br>[20k] 13<br>[50k] 26<br>[100k] 30
+T01 | 直插电位器 | 3926W | － | [1k] C118949<br>[5k] C118907<br>[10k] C118954<br>[20k] C118936<br>[50k] C118911<br>[100k] C118963 | [优信电子](https://item.taobao.com/item.htm?id=522572542537) | [1k] 30<br>[5k] 22<br>[10k] 20<br>[20k] 13<br>[50k] 26<br>[100k] 30
 T02 | 直插二极管 | FR207 | DO-15 | C2468 | [优信电子](https://item.taobao.com/item.htm?id=589418652651) | 200
 T03 | 直插三极管 | S9013 | TO-92 | C6748 | [优信电子](https://item.taobao.com/item.htm?id=522575361924) | 500
 H01 | 排针 | PZ254V-12-40P | 2.54 mm | C22465944 | [优信电子](https://item.taobao.com/item.htm?id=571300127803&skuId=4197730409551) | 0
 H02 | 排母 | PM254-1-08-Z-8.5 | 2.54 mm | C2897371 | [优信电子](https://item.taobao.com/item.htm?id=522579376259&skuId=3150332284780) | 0
 H03 | 线对板针座 | XH-4AW | 2.5 mm | C2908613 | [优信电子](https://item.taobao.com/item.htm?id=522574977704&skuId=3147471345472) | 0
-H04 | 线对板针座 | KF2510直针座 | － | [2P] C27543<br>[3P] C29275 | [优信电子](https://item.taobao.com/item.htm?id=522574606497) | [2P] 2000<br>[3P] 1000
+H04 | 线对板针座 | KF2510直针座 | － | [2P] C2764790<br>[3P] C2764791 | [优信电子](https://item.taobao.com/item.htm?id=522574606497) | [2P] 2000<br>[3P] 1000
 H05 | 线对板针座 | KF2510胶壳座 | － | － | [优信电子](https://item.taobao.com/item.htm?id=522574389019) | [2P] 300<br>[3P] 300
 H06 | 线对板针座 | KF2510端子簧片 | － | － | [优信电子](https://item.taobao.com/item.htm?id=674706411070) | 1000
 H07 | 同轴天线座 | SMA-KE直头偏脚 | － | C496550 | [优信电子](https://item.taobao.com/item.htm?id=535460912016) | 60

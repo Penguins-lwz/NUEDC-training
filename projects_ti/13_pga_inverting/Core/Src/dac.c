@@ -1,0 +1,35 @@
+#include "dac.h"
+
+#define DAC_maxFreq		1000000
+#define DAC_DataSize	(sizeof(pData) / sizeof(uint16_t))
+
+const uint16_t pData[] = {
+	0x800, 0x842, 0x885, 0x8C6, 0x905, 0x941, 0x97B, 0x9B0,
+	0x9E2, 0xA0F, 0xA37, 0xA59, 0xA76, 0xA8D, 0xA9D, 0xAA7,
+	0xAAA, 0xAA7, 0xA9D, 0xA8D, 0xA76, 0xA59, 0xA37, 0xA0F,
+	0x9E2, 0x9B0, 0x97B, 0x941, 0x905, 0x8C6, 0x885, 0x842,
+	0x800, 0x7BD, 0x77A, 0x739, 0x6FA, 0x6BE, 0x684, 0x64F,
+	0x61D, 0x5F0, 0x5C8, 0x5A6, 0x589, 0x572, 0x562, 0x558,
+	0x555, 0x558, 0x562, 0x572, 0x589, 0x5A6, 0x5C8, 0x5F0,
+	0x61D, 0x64F, 0x684, 0x6BE, 0x6FA, 0x739, 0x77A, 0x7BD
+};
+
+void myDAC_Start_DMA(myDAC_HandleTypeDef *myhdac, float freq)
+{
+	myDAC_Stop_DMA(myhdac);
+	
+	DL_DMA_setSrcAddr(DMA, myhdac->dmach, (uint32_t)pData);
+	DL_DMA_setDestAddr(DMA, myhdac->dmach, (uint32_t)&DAC0->DATA0);
+	DL_DMA_setTransferSize(DMA, myhdac->dmach, DAC_DataSize);
+	DL_DMA_enableChannel(DMA, myhdac->dmach);
+	
+	freq = freq * DAC_DataSize < DAC_maxFreq ? freq * DAC_DataSize : DAC_maxFreq;
+	DL_Timer_setLoadValue(myhdac->htim, myhdac->clkFreq / freq - 0.5);
+	DL_Timer_startCounter(myhdac->htim);
+}
+
+void myDAC_Stop_DMA(myDAC_HandleTypeDef *myhdac)
+{
+	DL_Timer_stopCounter(myhdac->htim);
+	DL_DMA_disableChannel(DMA, myhdac->dmach);
+}

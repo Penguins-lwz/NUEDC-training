@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -51,11 +52,19 @@
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 void LCD_ShowString(uint8_t Line, const char *format, ...);
+void Key_Process(uint8_t keyNum);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim == &htim17)
+	{
+		Key_Process(Key_Read());
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -88,6 +97,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
   LED_WR(0x00);
   LCD_Init();
@@ -106,18 +116,14 @@ int main(void)
   LCD_ShowString(Line8, "8                   ");
   LCD_ShowString(Line9, "9                   ");
   
+  HAL_TIM_Base_Start_IT(&htim17);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	for (uint8_t i = 0; i < 8; ++i)
-	{
-		LED_WR(1 << i);
-		HAL_Delay(125);
-	}
-	
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -180,6 +186,19 @@ void LCD_ShowString(uint8_t Line, const char *format, ...)
 	va_end(ap);
 	while (xnum < 20) str[xnum++] = 32;
 	LCD_DisplayStringLine(Line, (uint8_t *)str);
+}
+
+void Key_Process(uint8_t keyNum)
+{
+	if (keyNum == 0x00) return;
+	else if (keyNum == 0x01) LED_WR(0x01);
+	else if (keyNum == 0x02) LED_WR(0x02);
+	else if (keyNum == 0x03) LED_WR(0x04);
+	else if (keyNum == 0x04) LED_WR(0x08);
+	else if (keyNum == 0x81) LED_WR(0x10);
+	else if (keyNum == 0x82) LED_WR(0x20);
+	else if (keyNum == 0x83) LED_WR(0x40);
+	else if (keyNum == 0x84) LED_WR(0x80);
 }
 
 /* USER CODE END 4 */

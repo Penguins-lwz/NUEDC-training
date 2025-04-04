@@ -114,6 +114,8 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM17_Init();
+  MX_TIM3_Init();
+  MX_TIM2_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
@@ -129,6 +131,9 @@ int main(void)
   
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
+  HAL_TIM_IC_Start(&htim2, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start(&htim2, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
   HAL_TIM_Base_Start_IT(&htim17);
   
   /* USER CODE END 2 */
@@ -137,8 +142,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	LCD_ShowString(Line4, "     VR37:%4.2fV", LinearMap(ADC2->DR, 0, 4095, 0, 3.3));
-	LCD_ShowString(Line5, "     VR38:%4.2fV", LinearMap(ADC1->DR, 0, 4095, 0, 3.3));
+	uint32_t period = TIM2->CCR2 + 1;
+	uint32_t pulse = TIM2->CCR1 + 1;
+	LCD_ShowString(Line4, "    Freq:%5.2fkHz", 1000.0 / period);
+	LCD_ShowString(Line5, "    Duty:%5.2f%%", 100.0 * pulse / period);
 	
     /* USER CODE END WHILE */
 
@@ -206,7 +213,11 @@ void LCD_ShowString(uint8_t Line, const char *format, ...)
 
 void Key_Process(uint8_t keyNum)
 {
-	
+	static uint16_t target = 1;
+	if (keyNum == 0x00) return;
+	if (keyNum & 0x01) target = target == 10 ? 1: target + 1;
+	if (keyNum & 0x02) target = target == 1 ? 10: target - 1;
+	TIM3->PSC = 8000 / target - 1;
 }
 
 float LinearMap(float x, float xmin, float xmax, float ymin, float ymax)

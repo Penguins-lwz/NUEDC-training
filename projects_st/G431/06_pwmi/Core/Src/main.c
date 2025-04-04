@@ -114,6 +114,8 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM17_Init();
+  MX_TIM3_Init();
+  MX_TIM2_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
@@ -129,6 +131,8 @@ int main(void)
   
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
+  HAL_TIM_IC_Start(&htim2, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_Base_Start_IT(&htim17);
   
   /* USER CODE END 2 */
@@ -137,8 +141,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	LCD_ShowString(Line4, "     VR37:%4.2fV", LinearMap(ADC2->DR, 0, 4095, 0, 3.3));
-	LCD_ShowString(Line5, "     VR38:%4.2fV", LinearMap(ADC1->DR, 0, 4095, 0, 3.3));
+	LCD_ShowString(Line4, "    PR39:%5dHz", 1000000 / (TIM3->CCR1 + 1));
+	LCD_ShowString(Line5, "    PR40:%5dHz", 1000000 / (TIM2->CCR1 + 1));
 	
     /* USER CODE END WHILE */
 

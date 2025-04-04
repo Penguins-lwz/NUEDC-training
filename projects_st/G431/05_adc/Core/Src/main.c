@@ -114,6 +114,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM17_Init();
+  MX_ADC1_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
   LED_WR(0x00);
@@ -126,6 +127,7 @@ int main(void)
   myUART_Transmit_DMA(&myUART, "Continuous sending test.\r\n");
   myUART_Start_Receive_DMA(&myUART);
   
+  HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
   HAL_TIM_Base_Start_IT(&htim17);
   
@@ -135,6 +137,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	LCD_ShowString(Line4, "     VR37:%4.2fV", LinearMap(HAL_ADC_GetValue(&hadc2), 0, 4095, 0, 3.3));
+	LCD_ShowString(Line5, "     VR38:%4.2fV", LinearMap(HAL_ADC_GetValue(&hadc1), 0, 4095, 0, 3.3));
+	
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -201,10 +206,7 @@ void LCD_ShowString(uint8_t Line, const char *format, ...)
 
 void Key_Process(uint8_t keyNum)
 {
-	uint16_t adcValue = HAL_ADC_GetValue(&hadc2);
-	float voltage = LinearMap(HAL_ADC_GetValue(&hadc2), 0, 4095, 0, 3.3);
-	LCD_ShowString(Line4, "     VR37:%4.2fV", voltage);
-	if (keyNum & 0x04) myUART_Transmit_DMA(&myUART, "VR37:%4.2fV\r\n", voltage);
+	
 }
 
 float LinearMap(float x, float xmin, float xmax, float ymin, float ymax)

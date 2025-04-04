@@ -18,7 +18,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "dma.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -45,12 +48,14 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+myUART_HandleTypeDef myUART = { .huart = &huart1 };
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+float LinearMap(float x, float xmin, float xmax, float ymin, float ymax);
 void LCD_ShowString(uint8_t Line, const char *format, ...);
 void Key_Process(uint8_t keyNum);
 
@@ -58,6 +63,15 @@ void Key_Process(uint8_t keyNum);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+	if (huart == myUART.huart && huart->RxEventType != HAL_UART_RXEVENT_HT)
+	{
+		myUART_Transmit_DMA(&myUART, "RxMsg: %s", myUART.RxMsg);
+		myUART_Start_Receive_DMA(&myUART);
+	}
+}
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim == &htim17)
@@ -97,14 +111,22 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART1_UART_Init();
   MX_TIM17_Init();
+  MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
   LED_WR(0x00);
   LCD_Init();
   LCD_Clear(Black);
   LCD_SetBackColor(Black);
   LCD_SetTextColor(White);
+  LCD_ShowString(Line3, "        DATA        ");
+  myUART_Transmit_DMA(&myUART, "G431RBT6 UART1 Connected.\r\n");
+  myUART_Transmit_DMA(&myUART, "Continuous sending test.\r\n");
+  myUART_Start_Receive_DMA(&myUART);
   
+  HAL_ADC_Start(&hadc2);
   HAL_TIM_Base_Start_IT(&htim17);
   
   /* USER CODE END 2 */
@@ -179,15 +201,17 @@ void LCD_ShowString(uint8_t Line, const char *format, ...)
 
 void Key_Process(uint8_t keyNum)
 {
-	if (keyNum == 0x00) return;
-	else if (keyNum == 0x01) LED_WR(0x01);
-	else if (keyNum == 0x02) LED_WR(0x02);
-	else if (keyNum == 0x03) LED_WR(0x04);
-	else if (keyNum == 0x04) LED_WR(0x08);
-	else if (keyNum == 0x81) LED_WR(0x10);
-	else if (keyNum == 0x82) LED_WR(0x20);
-	else if (keyNum == 0x83) LED_WR(0x40);
-	else if (keyNum == 0x84) LED_WR(0x80);
+	uint16_t adcValue = HAL_ADC_GetValue(&hadc2);
+	float voltage = LinearMap(HAL_ADC_GetValue(&hadc2), 0, 4095, 0, 3.3);
+	LCD_ShowString(Line4, "     VR37:%4.2fV", voltage);
+	if (keyNum & 0x04) myUART_Transmit_DMA(&myUART, "VR37:%4.2fV\r\n", voltage);
+}
+
+float LinearMap(float x, float xmin, float xmax, float ymin, float ymax)
+{
+	if (x <= xmin) return ymin;
+	if (x >= xmax) return ymax;
+	return ymin + (x - xmin) * (ymax - ymin) / (xmax - xmin);
 }
 
 /* USER CODE END 4 */

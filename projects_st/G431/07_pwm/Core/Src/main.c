@@ -215,8 +215,8 @@ void Key_Process(uint8_t keyNum)
 {
 	static uint16_t target = 1;
 	if (keyNum == 0x00) return;
-	if (keyNum & 0x01) target = target == 10 ? 1: target + 1;
-	if (keyNum & 0x02) target = target == 1 ? 10: target - 1;
+	if ((keyNum & 0x7F) == 0x01) target = target == 10 ? 1: target + 1;
+	if ((keyNum & 0x7F) == 0x02) target = target == 1 ? 10: target - 1;
 	TIM3->PSC = 8000 / target - 1;
 }
 

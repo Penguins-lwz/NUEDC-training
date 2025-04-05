@@ -104,6 +104,10 @@ int main(void)
   LCD_Clear(Black);
   LCD_SetBackColor(Black);
   LCD_SetTextColor(White);
+  LCD_ShowString(Line2, "      KEY TEST      ");
+  LCD_ShowString(Line4, "     CNT: 0         ");
+  LCD_ShowString(Line5, "     KEY: NONE      ");
+  LCD_ShowString(Line6, "    TYPE: NONE      ");
   
   HAL_TIM_Base_Start_IT(&htim17);
   
@@ -179,15 +183,26 @@ void LCD_ShowString(uint8_t Line, const char *format, ...)
 
 void Key_Process(uint8_t keyNum)
 {
+	static uint16_t cnt = 0;
 	if (keyNum == 0x00) return;
-	else if (keyNum == 0x01) LED_WR(0x01);
-	else if (keyNum == 0x02) LED_WR(0x02);
-	else if (keyNum == 0x03) LED_WR(0x04);
-	else if (keyNum == 0x04) LED_WR(0x08);
-	else if (keyNum == 0x81) LED_WR(0x10);
-	else if (keyNum == 0x82) LED_WR(0x20);
-	else if (keyNum == 0x83) LED_WR(0x40);
-	else if (keyNum == 0x84) LED_WR(0x80);
+	
+	LCD_ShowString(Line4, "     CNT: %d", ++cnt);
+	
+	switch (keyNum & 0x0F)
+	{
+		case 0x01: LCD_ShowString(Line5, "     KEY: S1        "); break;
+		case 0x02: LCD_ShowString(Line5, "     KEY: S2        "); break;
+		case 0x03: LCD_ShowString(Line5, "     KEY: S3        "); break;
+		case 0x04: LCD_ShowString(Line5, "     KEY: S4        "); break;
+		default: break;
+	}
+	
+	switch (keyNum & 0xF0)
+	{
+		case 0x00: LCD_ShowString(Line6, "    TYPE: TAP       "); break;
+		case 0x80: LCD_ShowString(Line6, "    TYPE: HOLD      "); break;
+		default: break;
+	}
 }
 
 /* USER CODE END 4 */

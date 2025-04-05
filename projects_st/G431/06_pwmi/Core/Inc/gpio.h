@@ -44,6 +44,9 @@ extern "C" {
 #define KEY3_Trigger	(HAL_GPIO_ReadPin(KEY_S3_GPIO_Port, KEY_S3_Pin) == 0)
 #define KEY4_Trigger	(HAL_GPIO_ReadPin(KEY_S4_GPIO_Port, KEY_S4_Pin) == 0)
 
+#define KEY_TH_TAP		5
+#define KEY_TH_HOLD		25
+
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);

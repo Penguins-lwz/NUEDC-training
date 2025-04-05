@@ -91,16 +91,16 @@ void MX_GPIO_Init(void)
 /* USER CODE BEGIN 2 */
 uint8_t Key_Read(void)
 {
-    static uint16_t cnt = 0;
-    static uint8_t num = 0;
-    if (KEY1_Trigger) cnt++, num = 1;
-    else if (KEY2_Trigger) cnt++, num = 2;
-    else if (KEY3_Trigger) cnt++, num = 3;
-    else if (KEY4_Trigger) cnt++, num = 4;
-    else if (cnt < 10) cnt = 0, num = 0;
-    else if (cnt < 40) { cnt = 0; return num; }
-    else { cnt = 0; return num | 0x80; }
-    return 0;
+	static uint16_t cnt = 0;
+	static uint8_t num = 0x00;
+	if (KEY1_Trigger) cnt++, num = 0x01;
+	else if (KEY2_Trigger) cnt++, num = 0x02;
+	else if (KEY3_Trigger) cnt++, num = 0x03;
+	else if (KEY4_Trigger) cnt++, num = 0x04;
+	else if (cnt < KEY_TH_TAP) cnt = 0, num = 0x00;
+	else if (cnt < KEY_TH_HOLD) { cnt = 0; return num | 0x00; }
+	else { cnt = 0; return num | 0x80; }
+	return 0;
 }
 
 /* USER CODE END 2 */

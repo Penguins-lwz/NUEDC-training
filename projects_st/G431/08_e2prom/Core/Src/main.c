@@ -213,7 +213,7 @@ uint8_t ROM_Read(uint8_t address)
 	I2CSendByte(0xA1);
 	I2CWaitAck();
 	data = I2CReceiveByte();
-	I2CWaitAck();
+	I2CSendNotAck();
 	
 	I2CStop();
 	return data;

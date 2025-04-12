@@ -182,20 +182,5 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void myUART_Start_Receive_DMA(myUART_HandleTypeDef *myhuart)
-{
-	memset(myhuart->RxMsg, 0, UART_BufSize);
-	HAL_UARTEx_ReceiveToIdle_DMA(myhuart->huart, (uint8_t *)myhuart->RxMsg, UART_BufSize - 1);
-}
-
-void myUART_Transmit_DMA(myUART_HandleTypeDef *myhuart, const char *format, ...)
-{
-	va_list ap;
-	va_start(ap, format);
-	while (myhuart->huart->gState != HAL_UART_STATE_READY || myhuart->huart->hdmatx->State != HAL_DMA_STATE_READY);
-	vsnprintf(myhuart->TxMsg, UART_BufSize, format, ap);
-	va_end(ap);
-	HAL_UART_Transmit_DMA(myhuart->huart, (uint8_t *)myhuart->TxMsg, strlen(myhuart->TxMsg));
-}
 
 /* USER CODE END 1 */

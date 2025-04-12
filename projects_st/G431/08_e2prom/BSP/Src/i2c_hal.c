@@ -96,7 +96,7 @@ void I2CStop(void)
     SCL_Output(1);
     delay1(DELAY_TIME);
     SDA_Output(1);
-    delay1(DELAY_TIME);
+    delay1(DELAY_TIME * 600);
 
 }
 
